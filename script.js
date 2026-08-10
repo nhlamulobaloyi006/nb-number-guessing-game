@@ -47,6 +47,7 @@ userValue.addEventListener('click', function(){
 
 
 submitBtn.addEventListener('click', () => {
+
     attempted++
     let indexLose = Math.floor(Math.random() * randomLoseSounds.length);
 
