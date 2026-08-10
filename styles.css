@@ -57,6 +57,7 @@ body {
 }
 
 .inputs button {
+    display: none;
     padding: .6rem 1rem;
     border-radius: .8rem;
 }
