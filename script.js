@@ -60,16 +60,21 @@ submitBtn.addEventListener('click', () => {
 
     if (Number(getRangeValue) === Number(getTargetValue)) {
         isWin = true;
-        alert("You got it");
+        randomNum.textContent = "🥳🥳🥳";
     }
 
     if (Number(getRangeValue) !== Number(getTargetValue)) {
         isWin = false;
     }
 
+    const winEffect = document.createElement('audio');
+
     if (isWin === true) {
         winnigs++
         wins.textContent = `Wins: ${winnigs}`;
+        winEffect.src = '/sound_effects/win.mp3';
+
+        winEffect.play();
     }
 
     const failEffect = document.createElement('audio');
@@ -89,6 +94,8 @@ submitBtn.addEventListener('click', () => {
     chosenNum.textContent = ` Chosen no: ${targetValue[0]}`;
 
     clearField.value = '';
+
+    generateRange();
 });
 
 document.addEventListener('keydown', (e) => {
