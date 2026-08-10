@@ -13,6 +13,7 @@ let winnigs = 0;
 
 let getRange = []
 let targetValue = []
+let randomLoseSounds = ['sound_effects/lose.mp3', 'sound_effects/lose_2.mp3', '/sound_effects/lose_3.mp3', '/sound_effects/lose_4.mp3', '/sound_effects/lose_5.mp3']
 
 function generateRange() {
     let randomizeNumbers = Math.floor(Math.random() * 99 + 1);
@@ -43,8 +44,12 @@ userValue.addEventListener('click', function(){
     generateRange();
 });
 
+
+
 submitBtn.addEventListener('click', () => {
     attempted++
+    let indexLose = Math.floor(Math.random() * randomLoseSounds.length);
+
     const clearField = document.getElementById('userValue');
     const getRangeValue = getRange[0];
     const user = userValue.value;
@@ -67,12 +72,16 @@ submitBtn.addEventListener('click', () => {
     }
 
     const failEffect = document.createElement('audio');
-    failEffect.src = 'sound_effects/lose.mp3';
+    failEffect.src = randomLoseSounds[indexLose];
+
+    console.log(`Sound: ${randomLoseSounds[indexLose]}`)
 
     if (isWin === false) {
         wins.textContent = `Wins: ${winnigs}`;
         failEffect.play();
     }
+
+
 
     randomNum.textContent = getRange[0];
     attempts.textContent = `Attempts: ${attempted}`;
