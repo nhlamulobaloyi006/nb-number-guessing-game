@@ -66,8 +66,12 @@ submitBtn.addEventListener('click', () => {
         wins.textContent = `Wins: ${winnigs}`;
     }
 
+    const failEffect = document.createElement('audio');
+    failEffect.src = 'sound_effects/lose.mp3';
+
     if (isWin === false) {
         wins.textContent = `Wins: ${winnigs}`;
+        failEffect.play();
     }
 
     randomNum.textContent = getRange[0];
