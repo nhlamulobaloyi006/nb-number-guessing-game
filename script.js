@@ -89,3 +89,9 @@ submitBtn.addEventListener('click', () => {
 
     clearField.value = '';
 });
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        submitBtn.click();
+    }
+});
